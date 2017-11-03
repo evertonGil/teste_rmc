@@ -1,6 +1,6 @@
 var config = {
 	from: '"Everton gil" <egmsantos@gmail.com>',
-    to: 'egmsantos@gmail.com.br',
+    to: 'egmsantos@gmail.com',
 
 
     email: 'egmsantos@gmail.com',
