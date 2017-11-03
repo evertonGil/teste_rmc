@@ -1,18 +1,17 @@
 var gulp = require('gulp')
 	,imagemin = require('gulp-imagemin')
 	,clean = require('gulp-clean')
+	,usemin = require('gulp-usemin')
 	,uglify = require('gulp-uglify')
 	,cssmin = require('gulp-cssmin')
-	,htmlReplace = require('gulp-html-replace')
-	,usemin = require('gulp-usemin')
 	,browserSync = require('browser-sync')
 	,less = require('gulp-less')
-	,autoprefixer = require('gulp-autoprefixer');
-	var concat   = require('gulp-concat');
-	var fonts = require('gulp-font2css').default;
+	,autoprefixer = require('gulp-autoprefixer')
+	,concat   = require('gulp-concat')
+	,fonts = require('gulp-font2css').default;
 
 
-gulp.task('default', ['build-template'], function() {
+gulp.task('default',['copy'], function() {
 	gulp.start('build-img', 'usemin');
 });
 
@@ -29,32 +28,10 @@ gulp.task('server', function() {
 
 });
 
-gulp.task('reload', ['build-template'], function(){
+gulp.task('reload', ['default'], function(){
 	browserSync.reload();
 });
 
-gulp.task('build-template', ['copy'], function(){ 
-	return gulp.src('public/*.html')
-		.pipe(clean())
-		.pipe(htmlReplace({
-			header: {
-				src: gulp.src('public/templates/header.html'),
-				tpl: '%s'
-			},
-			footer:{
-				src: gulp.src('public/templates/footer.html'),
-				tpl: '%s'
-			},
-			bannercases:{
-				src: gulp.src('public/templates/banner-cases.html'),
-				tpl: '%s'
-			}
-		}), 
-		{
-			keepBlockTags: true,
-		})
-		.pipe(gulp.dest('public'))
-});
 
 gulp.task('copy', ['clean', 'build-less'], function(){
 	return gulp.src('dev/**/*')
@@ -89,10 +66,15 @@ gulp.task('build-img', function(){
 gulp.task('usemin', function(){
 	gulp.src('public/**/*.html')
 	.pipe(usemin({
-		js: [uglify],
-		css: [cssmin]
+		jsAttributes : {
+			defer : true
+		},
+		js: [uglify().on('error', function(e){
+            console.log(e);
+         })],
+		css:[cssmin]
 	}))
-	.pipe(gulp.dest());
+	.pipe(gulp.dest('public/'));
 })
 
 gulp.task('build-fonts', function() {
@@ -101,4 +83,6 @@ gulp.task('build-fonts', function() {
     .pipe(concat('fonts.less'))
     .pipe(gulp.dest('dev/less/'))
 })
+
+
 

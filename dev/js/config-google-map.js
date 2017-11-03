@@ -93,19 +93,25 @@ var map;
 
 function initMap() {
 	
+  console.log('initMap');
+
 	var ponto;
+  var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + local + "&key=AIzaSyDH_OlEmgC4e5vZ4a9X8rRugVVs1sczCSg";
 
 	var xhr = new XMLHttpRequest();
 
-	xhr.open("get", "https://maps.googleapis.com/maps/api/geocode/json?address=" + local + "&key=AIzaSyDH_OlEmgC4e5vZ4a9X8rRugVVs1sczCSg", true);
+	xhr.open("get", url , true);
 	
 	xhr.onreadystatechange = function(res) {
 
     if (this.readyState == 4 ) {
+
+      
     	var res = JSON.parse(this.response);
     	ponto = res.results[0].geometry.location;
 
-    	map = new google.maps.Map(document.querySelector('.mapa'), {
+
+    	map = new google.maps.Map($('.mapa')[0], {
           center: ponto,
           zoom: 17,
           styles: styles,
