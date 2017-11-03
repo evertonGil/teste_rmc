@@ -34,7 +34,7 @@ api.enviarEmail = function(req, res){
 
 	    let mailOptions = {
 	        from: config.from, 
-	        to: config.to, 
+	        to: `${config.to}, ${req.body.email}`, 
 	        subject: 'Formulário de contato site: lorem ipsum',
 	        text: 'Nome: ${req.body.nome} // Email: ${req.body.email} // Mensagem: ${req.body.mensagem}', 
 	        html: templateHtml
