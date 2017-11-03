@@ -1,7 +1,7 @@
 var xhr = new XMLHttpRequest();
 var body = {};
 
-document.querySelector('#formulario_email').addEventListener('submit', function(event){
+$('#formulario_email').on('submit', function(event){
   
   event.preventDefault();
   
@@ -25,7 +25,7 @@ document.querySelector('#formulario_email').addEventListener('submit', function(
       event.target[1].value = '';
       event.target[2].value = '';
 
-      alert("Mensagem enviada com sucesso!");
+      alert("Agradecemos pelo seu contato <br> sua mensagem foi realizada com sucesso!");
 
       
     }

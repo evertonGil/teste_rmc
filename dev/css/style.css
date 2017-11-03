@@ -152,6 +152,9 @@ p {
   font-weight: 200;
   font-size: 1.25rem;
 }
+.mousellax {
+  position: relative;
+}
 .first_color {
   color: #5694c8;
 }
@@ -165,6 +168,11 @@ p {
   font-size: 3.94rem;
   text-transform: uppercase;
   line-height: 1em;
+}
+@media (max-width: 460px) {
+  .titulo {
+    word-wrap: break-word;
+  }
 }
 .titulo .subtitulo {
   font-weight: 200;
@@ -334,6 +342,7 @@ p {
   background-size: auto;
   background-attachment: fixed;
   height: 1578px;
+  background-position: 50% 0px;
 }
 @media (max-width: 1200px) {
   .conteudo_primario {
@@ -540,6 +549,8 @@ p {
   .conteudo_secundario {
     margin-top: 0px;
     background: #5bc0ab;
+    height: auto;
+    padding-bottom: 60px;
   }
 }
 .conteudo_secundario .container {
@@ -679,6 +690,9 @@ p {
     -ms-flex-order: 2;
     order: 2;
   }
+}
+.conteudo_secundario .aside .border_round img {
+  max-width: 100%;
 }
 .conteudo_secundario .aside .icon {
   margin-top: -20px;
@@ -1025,6 +1039,11 @@ p {
     width: 100%;
   }
 }
+@media (max-width: 468px) {
+  .rodape_secundario form {
+    padding: 20px 20px 40px 20px;
+  }
+}
 .rodape_secundario form li {
   margin: 0px 0 18px 0;
 }
@@ -1055,8 +1074,22 @@ p {
   border-radius: 20px;
   bottom: -50px;
   cursor: pointer;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
   -webkit-box-shadow: -8px -8px rgba(0, 0, 0, 0.1);
   box-shadow: -8px -8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 468px) {
+  .rodape_secundario form button {
+    bottom: -20px;
+    padding: 15px 45px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+  }
+}
+.rodape_secundario form button:hover {
+  background-color: #7cacd5;
 }
 .rodape_secundario .info2 {
   max-width: 425px;

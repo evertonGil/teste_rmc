@@ -12,6 +12,9 @@ p{
 	font-weight: 200;
 	font-size: 1.25rem;
 }
+.mousellax{
+	position: relative;
+}
 .first_color{
 	color: @cor-primaria;
 }
@@ -25,6 +28,10 @@ p{
 	font-size: 3.94rem;
 	text-transform: uppercase;
 	line-height: 1em;
+
+	@media(max-width: 460px){
+		word-wrap: break-word;
+	}
 
 	& .subtitulo{
 		font-weight: 200;

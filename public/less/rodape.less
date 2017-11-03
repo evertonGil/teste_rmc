@@ -94,6 +94,9 @@
 			box-sizing: border-box;
 			width: 100%;
 		}
+		@media(max-width:468px){
+			padding:20px 20px 40px 20px;
+		}
 		li{
 			margin: 0px 0 18px 0;
 		}
@@ -122,7 +125,17 @@
 			border-radius: 20px;
 			bottom: -50px;
 			cursor: pointer;
+			transition: 0.5s;
 			.sombra-dura(-8px -8px rgba(0,0,0,0.1));
+
+			@media(max-width:468px){
+				bottom: -20px;
+				padding: 15px 45px;
+				border-radius: 15px;
+			}
+			&:hover{
+				background-color: lighten(@cor-primaria, 10%)
+			}
 		}
 	}
 	.info2{
