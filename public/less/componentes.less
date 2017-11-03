@@ -1,0 +1,55 @@
+body, html{
+	font-family: 'SourceSansPro', helvetica, arial, san-serif;
+
+	@media (max-width:1200px){
+		font-size: 14px;
+	}
+	@media (max-width:1024px){
+		font-size: 13px;
+	}
+}
+p{
+	font-weight: 200;
+	font-size: 1.25rem;
+}
+.first_color{
+	color: @cor-primaria;
+}
+.second_color{
+	color: @cor-secundaria;
+}
+.third_color{
+	color: @cor-terciaria;
+}
+.titulo{
+	font-size: 3.94rem;
+	text-transform: uppercase;
+	line-height: 1em;
+
+	& .subtitulo{
+		font-weight: 200;
+		display: block;
+	}
+}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+
+	@media (max-width: 1200px){
+		width: 1000px;
+	}
+	@media (max-width: 1024px){
+		width: 90%;
+	}
+}
+
+.border_round{
+	border-radius: 50%;
+	overflow: hidden;
+	
+    box-sizing: border-box;
+
+
+	img{
+	}
+}

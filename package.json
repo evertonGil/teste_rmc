@@ -17,21 +17,25 @@
     "body-parser": "^1.17.1",
     "compression": "^1.7.1",
     "consign": "^0.1.6",
-    "express": "^4.15.2",
-    "jade": "^1.11.0"
+    "express": "^4.16.2",
+    "nodemailer": "^4.3.1"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
     "gulp-csslint": "^1.0.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-font2css": "^0.1.2",
     "gulp-html-replace": "^1.6.2",
-    "gulp-imagemin": "^2.3.0",
+    "gulp-imagemin": "^3.4.0",
     "gulp-jshint": "^2.0.4",
     "gulp-less": "^3.3.2",
-    "gulp-uglify": "^1.4.1",
-    "gulp-usemin": "^0.3.14"
+    "gulp-uglify": "^3.0.0",
+    "gulp-usemin": "^0.3.28",
+    "jshint": "^2.9.5",
+    "nodemon": "^1.12.1"
   }
 }

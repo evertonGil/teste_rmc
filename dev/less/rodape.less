@@ -1,0 +1,169 @@
+.rodape_primario{
+	padding: 5% 0;
+
+	@media(max-width:994px){
+			padding: 10% 0;
+		}
+
+	.container{
+		.flex-row;
+
+		@media(max-width:994px){
+			.flex-column;
+			.flex-center-all;
+			text-align: center;
+		}
+	}
+	.info1{
+		margin: 0 0 0 8.4%;
+	}
+	.titulo{
+		color: @cor-primaria;
+		margin-bottom: 40px;
+		line-height: 0.95em;
+
+		@media(max-width:640px){
+			font-size: 3rem;
+		}
+		@media(max-width:420px){
+			font-size: 2.5rem;
+		}
+	}
+	p{
+		color: #949494;
+		font-size: 2rem;
+
+		@media(max-width:420px){
+			font-size: 1.8rem;
+		}
+		.mini{
+			font-size: 1.5rem;
+		}
+	}
+	.image_aside{
+		margin: 0 0 0 5%;
+
+		@media(max-width:994px){
+			margin: 5% 0 0 0;
+		}
+		img{
+			@media(max-width:994px){
+				width: 200px;
+			}
+			@media(max-width:420px){
+				display: none;
+			}
+		}
+		
+	}
+}
+
+
+.mapa{
+	height: 581px;
+	background-color: #eee;
+}
+
+.rodape_secundario{
+	background-color: @cor-primaria;
+	color: @cor-secundaria;
+	padding: 2% 0;
+
+	@media(max-width:768px){
+	}
+	.container{
+		.flex-row;
+
+		@media(max-width:994px){
+			.flex-column;
+		}
+	}
+
+	form{
+		width: 360px;
+		background-color: @cor-secundaria;
+		padding: 40px 40px 50px 40px;
+		position: relative;
+		margin: -110px 2% 8% 8%;
+		.sombra-dura(-25px -25px fade(darken(@cor-primaria, 20%), 10%));
+		.flex-column;
+
+		@media(max-width:994px){
+			margin-left: 0;
+			margin-right: 0;
+			box-sizing: border-box;
+			width: 100%;
+		}
+		li{
+			margin: 0px 0 18px 0;
+		}
+		li:last-child{
+			margin-bottom: 0;
+		}
+		input, textarea{
+			width: 100%;
+			font-size: 1.25rem;
+			border:1px solid #eeeeee;
+			padding: 16px 20px;
+			box-sizing: border-box;
+			font-family: 'SourceSansPro', helvetica, arial, san-serif;
+			font-weight: 200;
+
+		}
+		textarea{
+			height: 130px;
+		}
+		button{
+			background-color: darken(@cor-primaria, 6%);
+			color: @cor-secundaria;
+			display: block;
+			position: absolute;
+			padding: 30px 60px;
+			border-radius: 20px;
+			bottom: -50px;
+			cursor: pointer;
+			.sombra-dura(-8px -8px rgba(0,0,0,0.1));
+		}
+	}
+	.info2{
+		max-width: 425px;
+		margin: 5% 0 0 5%; 
+
+		@media(max-width:994px){
+			margin: 15% 0;
+		}
+		.titulo{
+			margin-bottom: 20px;
+		}
+	}
+
+} 
+
+
+
+.sub_rodape{
+	padding: 40px 0;
+	color: #949494;
+
+
+	.container{
+		.flex-row;
+		.flex-center-all;
+		position: relative;
+
+		@media(max-width:768px){
+			.flex-column;
+			text-align: center;
+		}
+	}
+	.made_by{
+		position: absolute;
+		right: 80px;
+
+		@media(max-width:768px){
+			position: relative;
+			margin-top: 40px;
+			right: 0;
+		}
+	}
+}

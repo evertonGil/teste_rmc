@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+*.psd
+*.sublime-workspace
+*.zip
+documentation/
+gulpfile.j

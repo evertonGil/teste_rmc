@@ -8,33 +8,30 @@ var gulp = require('gulp')
 	,browserSync = require('browser-sync')
 	,less = require('gulp-less')
 	,autoprefixer = require('gulp-autoprefixer');
+	var concat   = require('gulp-concat');
+	var fonts = require('gulp-font2css').default;
 
 
-
-gulp.task('copy',['clean', 'build-less'], function(){
-	return gulp.src('dev/**/*')
-	.pipe(gulp.dest('public'));
+gulp.task('default', ['build-template'], function() {
+	gulp.start('build-img', 'usemin');
 });
 
-gulp.task('clean', function(){
-	return gulp.src('public')
-		.pipe(clean())
+gulp.task('server', function() {
+    browserSync.init({
+        server: {
+            baseDir: 'public'
+        }
+    });
+
+    gulp.watch(['dev/**/*.less', 'dev/**/*.html', 'dev/**/*.js']).on('change', function(){
+    	gulp.start('reload')
+    });
+
 });
 
-gulp.task('build-img',['copy', 'build-template'], function(){
-	gulp.src('public/images/**/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('public/images'));
-})
-
-gulp.task('usemin', function(){
-	gulp.src('public/**/*.html')
-	.pipe(usemin({
-		js: [uglify],
-		css: [cssmin]
-	}))
-	.pipe(gulp.dest());
-})
+gulp.task('reload', ['build-template'], function(){
+	browserSync.reload();
+});
 
 gulp.task('build-template', ['copy'], function(){ 
 	return gulp.src('public/*.html')
@@ -59,8 +56,14 @@ gulp.task('build-template', ['copy'], function(){
 		.pipe(gulp.dest('public'))
 });
 
-gulp.task('reload',['build-template'], function(){
-	browserSync.reload();
+gulp.task('copy', ['clean', 'build-less'], function(){
+	return gulp.src('dev/**/*')
+	.pipe(gulp.dest('public'));
+});
+
+gulp.task('clean', function(){
+	return gulp.src('public')
+		.pipe(clean())
 });
 
 gulp.task('build-less', function(){
@@ -76,17 +79,26 @@ gulp.task('build-less', function(){
     	.pipe(gulp.dest('dev/css'))
 });
 
-gulp.task('server', function() {
-    browserSync.init({
-        server: {
-            baseDir: 'public'
-        }
-    });
-
-    gulp.watch(['dev/**/*.less', 'dev/**/*.html','dev/**/*.js' ]).on('change', function(){
-    	gulp.start('reload')
-    });
-
+gulp.task('build-img', function(){
+	gulp.src('public/images/**/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest('public/images'));
 });
 
+// usado para concatenar e minificar os css e js.
+gulp.task('usemin', function(){
+	gulp.src('public/**/*.html')
+	.pipe(usemin({
+		js: [uglify],
+		css: [cssmin]
+	}))
+	.pipe(gulp.dest());
+})
+
+gulp.task('build-fonts', function() {
+  return gulp.src('dev/fonts/**/*.{otf,ttf,woff,woff2}')
+    .pipe(fonts())
+    .pipe(concat('fonts.less'))
+    .pipe(gulp.dest('dev/less/'))
+})
 
